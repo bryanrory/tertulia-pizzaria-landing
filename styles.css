@@ -17,7 +17,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   background: var(--bg-dark);
@@ -25,6 +28,9 @@ body {
   font-family: var(--font-body);
   line-height: 1.5;
   padding-bottom: 72px;
+  max-width: 100%;
+  /* clip (não hidden) para não criar scroll container e quebrar o header sticky */
+  overflow-x: clip;
 }
 
 img { max-width: 100%; display: block; }
@@ -95,12 +101,17 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 50;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: rgba(18, 18, 18, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-subtle);
 }
 .header-inner {
+  width: 100%;
   max-width: 1200px;
+  min-width: 0;
   margin: 0 auto;
   padding: 0.6rem 1.25rem;
   display: flex;
@@ -109,13 +120,19 @@ a { color: inherit; text-decoration: none; }
   gap: 1rem;
   flex-wrap: wrap;
 }
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+}
 .logo-img,
 .footer-logo {
   mix-blend-mode: screen !important;
   background-color: transparent !important;
   object-fit: contain;
 }
-.logo-img { height: 44px; width: auto; }
+.logo-img { height: 44px; width: auto; max-width: 100%; }
 
 .status-badge {
   display: flex;
@@ -137,10 +154,41 @@ a { color: inherit; text-decoration: none; }
 .status-dot.aberto { background: var(--green-bright); }
 .status-dot.fechado { background: var(--red-bright); }
 
-.header-actions { display: flex; align-items: center; gap: 0.6rem; }
+.header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 0.6rem;
+}
 
 @media (min-width: 768px) {
   .status-badge { order: 0; width: auto; }
+}
+
+/* Header mobile: logo à esquerda e os 3 botões à direita, na mesma linha */
+@media (max-width: 767px) {
+  .header-inner {
+    padding: 0.55rem 0.75rem;
+    gap: 0.45rem 0.5rem;
+  }
+  .logo-img { height: 38px; }
+  .header-actions { gap: 0.3rem; }
+  .header-actions .btn {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+  .status-badge { font-size: 0.75rem; }
+}
+
+@media (max-width: 360px) {
+  .logo-img { height: 34px; }
+  .header-actions .btn {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.01em;
+  }
 }
 
 /* Hero */
@@ -160,6 +208,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-content {
   position: relative;
+  width: 100%;
   max-width: 900px;
   padding: 3rem 1.5rem 3.5rem;
   display: flex;
@@ -185,7 +234,12 @@ a { color: inherit; text-decoration: none; }
   max-width: 60ch;
   margin: 0 auto 1.75rem;
 }
-.hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+/* CTAs do hero: só no desktop. No mobile/tablet a barra fixa inferior já tem os mesmos botões */
+.hero-ctas { display: none; }
+@media (min-width: 768px) {
+  .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+  .hero-ctas .btn { max-width: 100%; }
+}
 .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
 .floating-badge {
   border: 1px solid var(--border-subtle);
@@ -230,12 +284,16 @@ section { padding: 5rem 0; }
   margin: 0 auto;
   padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, 1fr): impede que a imagem (aspect-ratio 4/3) alargue a coluna além da tela */
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: center;
 }
+.panel-media,
+.panel-text { min-width: 0; }
 .panel-media img {
   width: 100%;
+  max-width: 100%;
   height: 320px;
   object-fit: cover;
   aspect-ratio: 4 / 3;
@@ -268,7 +326,7 @@ section { padding: 5rem 0; }
 .price-list li strong { color: var(--gold); font-family: var(--font-title); }
 
 @media (min-width: 860px) {
-  .tab-panel { grid-template-columns: 1fr 1fr; }
+  .tab-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 
 /* Showcase */
@@ -408,7 +466,13 @@ section { padding: 5rem 0; }
   background: rgba(10,10,10,0.97);
   border-top: 1px solid var(--border-subtle);
 }
-.mobile-bar .btn { flex: 1; }
+.mobile-bar .btn {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.7rem 0.5rem;
+  white-space: normal;
+  text-align: center;
+}
 
 @media (min-width: 768px) {
   .mobile-bar { display: none; }
