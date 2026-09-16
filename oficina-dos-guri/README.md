@@ -8,15 +8,13 @@ Basta abrir o `index.html` ou subir os três arquivos em qualquer hospedagem
 oficina-dos-guri/
 ├── index.html   estrutura e conteúdo
 ├── style.css    tema "Industrial Garage Dark Mode" (CSS Variables, mobile first)
-└── script.js    menu mobile, FAQ, filtro da galeria, scroll reveal, links do WhatsApp
+└── script.js    menu mobile, FAQ, filtro da galeria e scroll reveal
 ```
 
 ## O que editar antes de publicar
 
 | Onde | O quê |
 |---|---|
-| `script.js` → `CONFIG.NUMERO` | **Obrigatório.** Número do WhatsApp com DDI+DDD, só dígitos (ex.: `5547999998888`). Enquanto estiver `5500000000000`, os links não funcionam e o console avisa. |
-| `script.js` → `CONFIG.MSG_PADRAO` / `MSG_SERVICO` | Textos que já vêm escritos na conversa. Em `MSG_SERVICO`, `{servico}` é trocado pelo nome do card. |
 | `index.html` → seção `#localizacao` | Endereço, região de atendimento, horários e formas de pagamento (procure por `EDITE AQUI`). |
 | `index.html` → rodapé | Cidade / região de atendimento (`EDITE AQUI`). |
 | `index.html` → seção `#antes-depois` | Trocar as ilustrações por fotos reais (veja abaixo). |
@@ -33,11 +31,19 @@ SVG de marcador de posição. Para usar foto, substitua o bloco inteiro por:
 O recorte (4:3), o zoom no hover e o filtro por categoria continuam funcionando.
 A categoria do card fica no atributo `data-cat` (`transmissao`, `freios`, `geral`).
 
-## Links de Instagram
+## Contato: só Instagram
 
-Todos apontam para `https://www.instagram.com/oficinadosguri_oficial/`
-(navbar, hero, bloco de portfólio, seção de localização, rodapé e botão flutuante).
-Se o @ mudar, troque as ocorrências no `index.html` e em `CONFIG.INSTAGRAM`.
+Todos os botões de contato levam para
+`https://www.instagram.com/oficinadosguri_oficial/` (navbar, hero, os quatro
+cards de serviço, bloco de portfólio, localização, CTA final, rodapé e botão
+flutuante). Os links estão escritos direto no `index.html`, então funcionam
+mesmo sem JavaScript. Se o @ mudar, é um localizar/substituir pela URL acima.
+
+### Quando o WhatsApp existir
+
+Para acrescentar o WhatsApp depois, troque o `href` dos botões de ação por
+`https://wa.me/55DDNUMERO?text=` seguido da mensagem codificada, ou reative
+um botão flutuante extra dentro de `<div class="floats">`.
 
 ## Detalhes técnicos
 

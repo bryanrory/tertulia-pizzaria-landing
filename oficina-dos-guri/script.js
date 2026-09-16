@@ -5,38 +5,18 @@
   'use strict';
 
   /* ------------------------------------------------------
-     CONFIGURAÇÃO — edite só este bloco
+     CONFIGURAÇÃO
      ------------------------------------------------------
-     NUMERO: DDI + DDD + número, apenas dígitos.
-     Ex.: (47) 99999-8888  ->  '5547999998888'
+     O contato acontece todo pelo direct do Instagram.
+     Os links ficam escritos direto no index.html; para trocar
+     o @, faça um localizar/substituir por:
+     https://www.instagram.com/oficinadosguri_oficial/
   ------------------------------------------------------ */
-  var CONFIG = {
-    NUMERO: '5500000000000',                 // <<< TROQUE PELO NÚMERO REAL
-    MSG_PADRAO: 'Olá! Gostaria de fazer um orçamento para minha bike.',
-    MSG_SERVICO: 'Olá! Gostaria de fazer um orçamento para minha bike. Tenho interesse no serviço: {servico}.',
-    INSTAGRAM: 'https://www.instagram.com/oficinadosguri_oficial/'
-  };
 
   var $  = function (s, ctx) { return (ctx || document).querySelector(s); };
   var $$ = function (s, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(s)); };
 
-  /* ---------- 1. Links do WhatsApp ---------- */
-  function montarLinks() {
-    if (!/^\d{12,13}$/.test(CONFIG.NUMERO) || CONFIG.NUMERO === '5500000000000') {
-      console.warn('[Oficina Dos Guri] Configure CONFIG.NUMERO em script.js com o WhatsApp real.');
-    }
-    $$('[data-wa]').forEach(function (el) {
-      var servico = el.getAttribute('data-wa');
-      var texto = servico
-        ? CONFIG.MSG_SERVICO.replace('{servico}', servico)
-        : CONFIG.MSG_PADRAO;
-      el.href = 'https://wa.me/' + CONFIG.NUMERO + '?text=' + encodeURIComponent(texto);
-      el.target = '_blank';
-      el.rel = 'noopener';
-    });
-  }
-
-  /* ---------- 2. Menu mobile ---------- */
+  /* ---------- 1. Menu mobile ---------- */
   function menu() {
     var burger = $('#burger');
     var nav = $('#nav');
@@ -69,7 +49,7 @@
     });
   }
 
-  /* ---------- 3. Header ao rolar + link ativo ---------- */
+  /* ---------- 2. Header ao rolar + link ativo ---------- */
   function header() {
     var head = $('.header');
     if (head) {
@@ -98,7 +78,7 @@
     secoes.forEach(function (s) { spy.observe(s); });
   }
 
-  /* ---------- 4. FAQ sanfona ---------- */
+  /* ---------- 3. FAQ sanfona ---------- */
   function faq() {
     var itens = $$('.faq__item');
     if (!itens.length) return;
@@ -130,7 +110,7 @@
     });
   }
 
-  /* ---------- 5. Filtro da galeria ---------- */
+  /* ---------- 4. Filtro da galeria ---------- */
   function galeria() {
     var chips = $$('.filters .chip');
     var itens = $$('#gallery .shot');
@@ -152,7 +132,7 @@
     });
   }
 
-  /* ---------- 6. Scroll reveal ---------- */
+  /* ---------- 5. Scroll reveal ---------- */
   function reveal() {
     var alvos = $$('[data-reveal]');
     if (!alvos.length) return;
@@ -183,7 +163,7 @@
     }
   }
 
-  /* ---------- 7. Ano no rodapé ---------- */
+  /* ---------- 6. Ano no rodapé ---------- */
   function ano() {
     var el = $('#ano');
     if (el) el.textContent = String(new Date().getFullYear());
@@ -191,7 +171,6 @@
 
   /* ---------- Boot ---------- */
   function init() {
-    montarLinks();
     menu();
     header();
     faq();

@@ -25,7 +25,6 @@
   --acc:#FFC700;          /* amarelo segurança */
   --acc-2:#FF5500;        /* laranja neon */
   --lime:#00E676;
-  --wa:#25D366;
   --ink:#101012;          /* texto sobre amarelo */
 
   /* espaçamento */
@@ -683,14 +682,30 @@ body.is-locked{overflow:hidden}
 }
 .float svg{width:26px;height:26px;position:relative;z-index:2}
 .float:hover{transform:scale(1.08)}
-.float--wa{background:var(--wa);color:#08130c}
-.float--ig{background:linear-gradient(140deg,#F9A825,#E1306C 58%,#8E3AD6);color:#fff;width:46px;height:46px}
-.float--ig svg{width:23px;height:23px}
+.float--ig{background:linear-gradient(140deg,#F9A825,#E1306C 58%,#8E3AD6);color:#fff;width:58px;height:58px}
+.float--ig svg{width:28px;height:28px}
+.float__label{
+  position:absolute;
+  right:calc(100% + 10px);
+  padding:.3rem .7rem;
+  background:var(--surface-2);
+  border:1px solid var(--line-2);
+  border-radius:var(--r-pill);
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--txt);
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(6px);
+  pointer-events:none;
+  transition:opacity var(--t), transform var(--t);
+}
+.float:hover .float__label,.float:focus-visible .float__label{opacity:1;transform:translateX(0)}
 .float__pulse{
   position:absolute;
   inset:0;
   border-radius:50%;
-  background:var(--wa);
+  background:#E1306C;
   opacity:.65;
   animation:pulse 2.2s ease-out infinite;
 }
