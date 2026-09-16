@@ -24,7 +24,7 @@ Google e afins leem para mostrar o negócio no mapa.
 
 ## Fotos da galeria
 
-Quatro cards já usam fotos reais:
+Cinco cards já usam fotos reais:
 
 | Card | Arquivos |
 |---|---|
@@ -32,6 +32,7 @@ Quatro cards já usam fotos reais:
 | Freios | `fotos/disco-antes.jpg` / `-depois.jpg` |
 | Revisão geral | `fotos/bike-antes.jpg` / `-depois.jpg` |
 | Cassete | `fotos/cassete-antes.jpg` / `-depois.jpg` |
+| Cabo de freio | `fotos/cabo-antes.jpg` / `-depois.jpg` |
 
 Todos os cards da galeria, com foto ou com ilustração, têm o mesmo tamanho.
 A moldura é 2:1, então cada metade é um quadrado, e a foto entra com
