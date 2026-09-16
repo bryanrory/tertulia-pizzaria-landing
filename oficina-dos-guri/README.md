@@ -24,19 +24,30 @@ Google e afins leem para mostrar o negócio no mapa.
 
 ## Fotos da galeria
 
-O primeiro card já usa fotos reais, em `fotos/corrente-antes.jpg` e
-`fotos/corrente-depois.jpg`. Ele leva a classe `shot--par`, que faz o card
-ocupar a linha inteira e mostrar as duas fotos lado a lado no computador e
-uma embaixo da outra no celular, cada uma em 3:2.
+Dois cards já usam fotos reais:
 
-Os outros cards ainda usam ilustrações SVG. Para transformar um deles em
-card de foto, copie a estrutura do primeiro card, troque os dois `<img>` e
-ajuste `width`, `height` e o texto do `alt`.
+| Card | Arquivos | Formato |
+|---|---|---|
+| Transmissão | `fotos/corrente-antes.jpg` / `-depois.jpg` | deitadas, 3:2 |
+| Freios | `fotos/disco-antes.jpg` / `-depois.jpg` | em pé, cortadas em 2:3 |
 
-As fotos entram com 1400px de largura no máximo e JPEG de qualidade 82, que
-é o suficiente para telas grandes sem pesar no carregamento. A categoria do
-card fica no atributo `data-cat` (`transmissao`, `freios`, `geral`) e é o que
-o filtro usa.
+Um card com foto leva a classe `shot--par`. Some `shot--larga` quando as
+fotos forem deitadas: aí o card ocupa a linha inteira e empilha as duas no
+celular. Sem ela, o card tem o tamanho normal e as fotos ficam lado a lado.
+
+Dois ajustes finos ficam no próprio `<figure>`, como variáveis CSS:
+
+- `--ba-ratio` é o formato de cada metade. O padrão é `7/8`; o card de
+  freios usa `2/3` para casar a altura com os cards de ilustração.
+- `--ba-pos` é de onde vem o recorte, igual ao `object-position`. O card de
+  freios usa `left`, para que o corte tire o fundo desfocado da direita em
+  vez do disco.
+
+Os outros cards ainda usam ilustrações. Para trocar um deles, copie a
+estrutura de um card de foto, troque os dois `<img>` e ajuste `width`,
+`height` e o `alt`. As fotos entram com no máximo 1400px de largura em JPEG,
+o que basta para telas grandes sem pesar. A categoria fica em `data-cat`
+(`transmissao`, `freios`, `geral`) e é o que o filtro usa.
 
 ## Contato: só Instagram
 

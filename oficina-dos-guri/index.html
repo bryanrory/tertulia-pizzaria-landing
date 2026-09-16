@@ -306,7 +306,7 @@
       <div class="gallery" id="gallery">
 
         <!-- Card com foto real: copie esta estrutura (classe shot--par) e troque os dois <img> para usar outras fotos. -->
-        <figure class="shot shot--par" data-cat="transmissao" data-reveal>
+        <figure class="shot shot--par shot--larga" data-cat="transmissao" data-reveal>
           <div class="shot__frame">
             <div class="ba">
               <div class="ba__half ba__half--before">
@@ -327,22 +327,24 @@
           </figcaption>
         </figure>
 
-        <figure class="shot" data-cat="freios" data-reveal>
+        <figure class="shot shot--par" data-cat="freios" data-reveal style="--ba-ratio:2/3; --ba-pos:left">
           <div class="shot__frame">
             <div class="ba">
               <div class="ba__half ba__half--before">
-                <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6"><circle cx="60" cy="60" r="34"/><circle cx="60" cy="60" r="12"/><path d="M60 26v10M94 60H84M60 94V84M26 60h10" stroke-linecap="round"/></g></svg>
+                <img class="ba__foto" src="fotos/disco-antes.jpg" width="900" height="1031" loading="lazy" decoding="async"
+                     alt="Disco de freio gasto e escurecido pelo uso, com a pista de frenagem marcada">
                 <span class="ba__tag">Antes</span>
               </div>
               <div class="ba__half ba__half--after">
-                <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6"><circle cx="60" cy="60" r="34"/><circle cx="60" cy="60" r="12"/><path d="M60 26v10M94 60H84M60 94V84M26 60h10" stroke-linecap="round"/></g></svg>
+                <img class="ba__foto" src="fotos/disco-depois.jpg" width="896" height="1026" loading="lazy" decoding="async"
+                     alt="Disco de freio novo montado na mesma roda, com a pista lisa e o acabamento escovado">
                 <span class="ba__tag">Depois</span>
               </div>
             </div>
           </div>
           <figcaption>
-            <strong>Pastilha no limite, disco empenado</strong>
-            <span>Pastilhas novas, disco alinhado e sangria</span>
+            <strong>Disco no fim da vida trocado por novo</strong>
+            <span>Disco e pastilhas novos, com freio alinhado</span>
           </figcaption>
         </figure>
 
