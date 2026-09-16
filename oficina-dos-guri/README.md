@@ -15,9 +15,12 @@ oficina-dos-guri/
 
 | Onde | O quê |
 |---|---|
-| `index.html` → seção `#localizacao` | Endereço, região de atendimento, horários e formas de pagamento (procure por `EDITE AQUI`). |
-| `index.html` → rodapé | Cidade / região de atendimento (`EDITE AQUI`). |
+| `index.html` → seção `#localizacao` | Horários e formas de pagamento. O endereço já está preenchido: Rua Orídio Martins, 56, Testo Salto, Blumenau/SC. |
 | `index.html` → seção `#antes-depois` | Trocar as ilustrações por fotos reais (veja abaixo). |
+
+O endereço aparece em três lugares que devem mudar juntos: o bloco de
+localização, o rodapé e o `application/ld+json` no `<head>`, que é o que
+Google e afins leem para mostrar o negócio no mapa.
 
 ## Trocar as ilustrações por fotos reais
 

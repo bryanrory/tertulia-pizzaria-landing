@@ -612,7 +612,31 @@ body.is-locked{overflow:hidden}
   box-shadow:var(--sh-2);
 }
 .info h3{margin-bottom:.7rem}
+.info__end{
+  display:grid;
+  gap:.15rem;
+  margin-bottom:.8rem;
+  padding-left:.85rem;
+  border-left:3px solid var(--acc);
+  font-style:normal;
+}
+.info__end strong{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;letter-spacing:-.01em}
+.info__end span{color:var(--txt-2);font-size:.9rem}
 .info__line{color:var(--txt-2);font-size:.92rem}
+.info__mapa{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  margin-top:.7rem;
+  font-size:.88rem;
+  font-weight:700;
+  color:var(--acc);
+  border-bottom:1px solid rgba(255,199,0,.35);
+  padding-bottom:2px;
+  transition:border-color var(--t-fast), gap var(--t-fast);
+}
+.info__mapa svg{width:1.05em;height:1.05em}
+.info__mapa:hover{border-bottom-color:var(--acc);gap:.6rem}
 .info__list{display:grid;gap:.1rem;margin:var(--s-3) 0}
 .info__list > div{
   display:flex;
@@ -649,6 +673,14 @@ body.is-locked{overflow:hidden}
 .footer__nav a:hover{color:var(--acc)}
 .footer__contact{display:grid;gap:.8rem;align-content:start}
 .footer__contact p{color:var(--txt-3);font-size:.9rem}
+.footer__end{
+  font-style:normal;
+  font-size:.92rem;
+  line-height:1.6;
+  color:var(--txt-2);
+  padding-left:.7rem;
+  border-left:2px solid var(--line-2);
+}
 .footer__contact .btn{width:fit-content}
 .footer__bottom{
   display:flex;
