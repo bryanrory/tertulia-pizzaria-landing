@@ -22,17 +22,21 @@ O endereço aparece em três lugares que devem mudar juntos: o bloco de
 localização, o rodapé e o `application/ld+json` no `<head>`, que é o que
 Google e afins leem para mostrar o negócio no mapa.
 
-## Trocar as ilustrações por fotos reais
+## Fotos da galeria
 
-Cada item da galeria tem um bloco `<div class="ba">…</div>` com uma ilustração
-SVG de marcador de posição. Para usar foto, substitua o bloco inteiro por:
+O primeiro card já usa fotos reais, em `fotos/corrente-antes.jpg` e
+`fotos/corrente-depois.jpg`. Ele leva a classe `shot--par`, que faz o card
+ocupar a linha inteira e mostrar as duas fotos lado a lado no computador e
+uma embaixo da outra no celular, cada uma em 3:2.
 
-```html
-<img class="shot__img" src="fotos/corrente.jpg" alt="Corrente antes e depois da limpeza" loading="lazy">
-```
+Os outros cards ainda usam ilustrações SVG. Para transformar um deles em
+card de foto, copie a estrutura do primeiro card, troque os dois `<img>` e
+ajuste `width`, `height` e o texto do `alt`.
 
-O recorte (4:3), o zoom no hover e o filtro por categoria continuam funcionando.
-A categoria do card fica no atributo `data-cat` (`transmissao`, `freios`, `geral`).
+As fotos entram com 1400px de largura no máximo e JPEG de qualidade 82, que
+é o suficiente para telas grandes sem pesar no carregamento. A categoria do
+card fica no atributo `data-cat` (`transmissao`, `freios`, `geral`) e é o que
+o filtro usa.
 
 ## Contato: só Instagram
 

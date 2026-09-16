@@ -519,6 +519,14 @@ body.is-locked{overflow:hidden}
   color:var(--txt-2);
 }
 .ba__half--after .ba__tag{color:var(--acc);border-color:rgba(255,199,0,.4)}
+/* card com fotos reais: duas fotos lado a lado, sem recorte agressivo */
+.ba__foto{width:100%;height:100%;object-fit:cover;display:block}
+.shot--par .shot__frame{aspect-ratio:auto}
+.shot--par .ba{grid-template-columns:1fr}
+.shot--par .ba__half{padding:0;aspect-ratio:3/2;background:#0b0b0d}
+.shot--par .ba__half::after{display:none}
+.shot--par .ba__half--after{border-left:0;border-top:1px solid rgba(255,199,0,.4)}
+
 .shot figcaption{display:grid;gap:.15rem;padding:var(--s-2)}
 .shot figcaption strong{font-family:'Space Grotesk',sans-serif;font-size:.98rem}
 .shot figcaption span{color:var(--txt-3);font-size:.84rem}
@@ -766,6 +774,9 @@ body.is-locked{overflow:hidden}
 /* ---------- 15. BREAKPOINTS ---------- */
 @media (min-width:600px){
   .cards,.gallery,.perks{grid-template-columns:repeat(2,1fr)}
+  .shot--par{grid-column:1 / -1}
+  .shot--par .ba{grid-template-columns:1fr 1fr}
+  .shot--par .ba__half--after{border-top:0;border-left:1px solid rgba(255,199,0,.4)}
   .hero__facts{grid-template-columns:repeat(3,1fr);gap:var(--s-3);border-top:0}
   .hero__facts li{border-bottom:0;border-top:2px solid var(--line);padding-top:.7rem}
   .ig-cta{padding:var(--s-4)}
