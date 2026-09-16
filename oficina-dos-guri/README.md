@@ -62,7 +62,7 @@ grandes sem pesar. A categoria fica em `data-cat` (`transmissao`, `freios`,
 ## Contato: só Instagram
 
 Todos os botões de contato levam para
-`https://www.instagram.com/oficinadosguri_oficial/` (navbar, hero, os quatro
+`https://www.instagram.com/oficinadosguri.oficial/` (navbar, hero, os quatro
 cards de serviço, bloco de portfólio, localização, CTA final, rodapé e botão
 flutuante). Os links estão escritos direto no `index.html`, então funcionam
 mesmo sem JavaScript. Se o @ mudar, é um localizar/substituir pela URL acima.

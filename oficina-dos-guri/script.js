@@ -10,7 +10,7 @@
      O contato acontece todo pelo direct do Instagram.
      Os links ficam escritos direto no index.html; para trocar
      o @, faça um localizar/substituir por:
-     https://www.instagram.com/oficinadosguri_oficial/
+     https://www.instagram.com/oficinadosguri.oficial/
   ------------------------------------------------------ */
 
   var $  = function (s, ctx) { return (ctx || document).querySelector(s); };
