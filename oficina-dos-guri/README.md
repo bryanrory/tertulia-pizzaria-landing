@@ -24,30 +24,37 @@ Google e afins leem para mostrar o negócio no mapa.
 
 ## Fotos da galeria
 
-Dois cards já usam fotos reais:
+Três cards já usam fotos reais:
 
-| Card | Arquivos | Formato |
-|---|---|---|
-| Transmissão | `fotos/corrente-antes.jpg` / `-depois.jpg` | deitadas, 3:2 |
-| Freios | `fotos/disco-antes.jpg` / `-depois.jpg` | em pé, cortadas em 2:3 |
+| Card | Arquivos |
+|---|---|
+| Transmissão | `fotos/corrente-antes.jpg` / `-depois.jpg` |
+| Freios | `fotos/disco-antes.jpg` / `-depois.jpg` |
+| Revisão geral | `fotos/bike-antes.jpg` / `-depois.jpg` |
 
-Um card com foto leva a classe `shot--par`. Some `shot--larga` quando as
-fotos forem deitadas: aí o card ocupa a linha inteira e empilha as duas no
-celular. Sem ela, o card tem o tamanho normal e as fotos ficam lado a lado.
+Todos os cards da galeria, com foto ou com ilustração, têm o mesmo tamanho.
+A moldura é 2:1, então cada metade é um quadrado, e a foto entra com
+`object-fit: cover`. Ela preenche o quadrado inteiro e o que passar do
+tamanho é cortado pelo centro, seja a foto deitada, em pé ou quadrada. Não
+existe ajuste por card: é a mesma regra para qualquer foto que você colocar.
 
-Dois ajustes finos ficam no próprio `<figure>`, como variáveis CSS:
+Se alguma foto ficar cortada num ponto ruim, dá para escolher de onde sai o
+corte com `object-position` só naquele `<img>`, por exemplo
+`style="object-position:left"` para o corte tirar o lado direito.
 
-- `--ba-ratio` é o formato de cada metade. O padrão é `7/8`; o card de
-  freios usa `2/3` para casar a altura com os cards de ilustração.
-- `--ba-pos` é de onde vem o recorte, igual ao `object-position`. O card de
-  freios usa `left`, para que o corte tire o fundo desfocado da direita em
-  vez do disco.
+Para transformar um card de ilustração em card de foto, acrescente a classe
+`shot--par` no `<figure>` e troque o conteúdo das duas metades por:
 
-Os outros cards ainda usam ilustrações. Para trocar um deles, copie a
-estrutura de um card de foto, troque os dois `<img>` e ajuste `width`,
-`height` e o `alt`. As fotos entram com no máximo 1400px de largura em JPEG,
-o que basta para telas grandes sem pesar. A categoria fica em `data-cat`
-(`transmissao`, `freios`, `geral`) e é o que o filtro usa.
+```html
+<img class="ba__foto" src="fotos/nome-antes.jpg" width="1400" height="933"
+     loading="lazy" decoding="async" alt="descreva o que aparece">
+```
+
+Os atributos `width` e `height` são as dimensões reais do arquivo e servem
+para o navegador reservar o espaço antes de a imagem carregar. As fotos
+entram com no máximo 1400px de largura em JPEG, o que basta para telas
+grandes sem pesar. A categoria fica em `data-cat` (`transmissao`, `freios`,
+`geral`) e é o que o filtro usa.
 
 ## Contato: só Instagram
 

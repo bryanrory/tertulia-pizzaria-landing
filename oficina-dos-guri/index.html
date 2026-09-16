@@ -306,7 +306,7 @@
       <div class="gallery" id="gallery">
 
         <!-- Card com foto real: copie esta estrutura (classe shot--par) e troque os dois <img> para usar outras fotos. -->
-        <figure class="shot shot--par shot--larga" data-cat="transmissao" data-reveal>
+        <figure class="shot shot--par" data-cat="transmissao" data-reveal>
           <div class="shot__frame">
             <div class="ba">
               <div class="ba__half ba__half--before">
@@ -327,7 +327,7 @@
           </figcaption>
         </figure>
 
-        <figure class="shot shot--par" data-cat="freios" data-reveal style="--ba-ratio:2/3; --ba-pos:left">
+        <figure class="shot shot--par" data-cat="freios" data-reveal>
           <div class="shot__frame">
             <div class="ba">
               <div class="ba__half ba__half--before">
@@ -348,15 +348,17 @@
           </figcaption>
         </figure>
 
-        <figure class="shot" data-cat="geral" data-reveal>
+        <figure class="shot shot--par" data-cat="geral" data-reveal>
           <div class="shot__frame">
             <div class="ba">
               <div class="ba__half ba__half--before">
-                <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><circle cx="30" cy="80" r="20"/><circle cx="90" cy="80" r="20"/><path d="M30 80 48 44h26L90 80M48 44h22"/></g></svg>
+                <img class="ba__foto" src="fotos/bike-antes.jpg" width="1400" height="933" loading="lazy" decoding="async"
+                     alt="Mountain bike preta e amarela largada no mato alto, encostada em um poste">
                 <span class="ba__tag">Antes</span>
               </div>
               <div class="ba__half ba__half--after">
-                <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><circle cx="30" cy="80" r="20"/><circle cx="90" cy="80" r="20"/><path d="M30 80 48 44h26L90 80M48 44h22"/></g></svg>
+                <img class="ba__foto" src="fotos/bike-depois.jpg" width="1264" height="843" loading="lazy" decoding="async"
+                     alt="A mesma bike revisada e limpa, apoiada no descanso na calçada">
                 <span class="ba__tag">Depois</span>
               </div>
             </div>
