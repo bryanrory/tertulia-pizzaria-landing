@@ -24,7 +24,7 @@ Google e afins leem para mostrar o negócio no mapa.
 
 ## Fotos da galeria
 
-Cinco cards já usam fotos reais:
+Os seis cards usam fotos reais:
 
 | Card | Arquivos |
 |---|---|
@@ -33,6 +33,7 @@ Cinco cards já usam fotos reais:
 | Revisão geral | `fotos/bike-antes.jpg` / `-depois.jpg` |
 | Cassete | `fotos/cassete-antes.jpg` / `-depois.jpg` |
 | Cabo de freio | `fotos/cabo-antes.jpg` / `-depois.jpg` |
+| Roda | `fotos/roda-antes.jpg` / `-depois.jpg` |
 
 Todos os cards da galeria, com foto ou com ilustração, têm o mesmo tamanho.
 A moldura é 2:1, então cada metade é um quadrado, e a foto entra com
@@ -44,8 +45,8 @@ Se alguma foto ficar cortada num ponto ruim, dá para escolher de onde sai o
 corte com `object-position` só naquele `<img>`, por exemplo
 `style="object-position:left"` para o corte tirar o lado direito.
 
-Para transformar um card de ilustração em card de foto, acrescente a classe
-`shot--par` no `<figure>` e troque o conteúdo das duas metades por:
+Para acrescentar um card novo, copie um `<figure class="shot shot--par">`
+inteiro, troque os dois `<img>`, a legenda e o `data-cat`. Cada foto é assim:
 
 ```html
 <img class="ba__foto" src="fotos/nome-antes.jpg" width="1400" height="933"
